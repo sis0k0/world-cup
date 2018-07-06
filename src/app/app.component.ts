@@ -9,7 +9,7 @@ import { Game } from './game';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'webapp';
+  title = 'World Cup 2018';
   games: Game[];
 
   constructor(private gameService: GameService) {
