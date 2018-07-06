@@ -1,3 +1,4 @@
 <div *ngFor="let game of games">
-  <app-score [game]="game"></app-score>
+  <app-score (click)="game.showDetails = !game.showDetails" [game]="game"></app-score>
+  <app-game-details *ngIf="game.showDetails" [game]="game"></app-game-details>
 </div>

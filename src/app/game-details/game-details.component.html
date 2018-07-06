@@ -1,3 +1,4 @@
-<p>
-  game-details works!
-</p>
+<div *ngFor="let goal of (game && game.goals || [])">
+  <p>{{ goal.minute }}' {{ goal.goalscorer }}</p>
+</div>
+
