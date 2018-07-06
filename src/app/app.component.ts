@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { GameService } from './game.service';
+import { Game } from './game';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { GameService } from './game.service';
 })
 export class AppComponent {
   title = 'webapp';
-  games = [];
+  games: Game[];
 
   constructor(private gameService: GameService) {
     this.gameService.getAll().subscribe((games) => {
@@ -17,7 +18,7 @@ export class AppComponent {
     });
   }
 
-  getScoreString(game) {
+  getScoreString(game: Game) {
     const { team1, team2, score1, score2 } = game;
     return `${team1} ${score1} : ${score2} ${team2}`;
   }
