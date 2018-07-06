@@ -17,9 +17,4 @@ export class AppComponent {
       this.games = games;
     });
   }
-
-  getScoreString(game: Game) {
-    const { team1, team2, score1, score2 } = game;
-    return `${team1} ${score1} : ${score2} ${team2}`;
-  }
 }

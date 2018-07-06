@@ -4,7 +4,5 @@
     Welcome to {{ title }}!
   </h1>
 
-  <div *ngFor="let game of games">
-    <p>{{ getScoreString(game) }}</p>
-  </div>
+  <app-games-list [games]="games"></app-games-list>
 </div>
