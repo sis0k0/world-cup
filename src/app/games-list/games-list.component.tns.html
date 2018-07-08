@@ -1,5 +1,7 @@
-<ListView [items]="games" (itemTap)="onItemTap(event)" class="list-group">
-    <ng-template let-game="item">
+<ListView [items]="games" class="list-group">
+  <ng-template let-game="item">
+    <StackLayout [nsRouterLink]="['/game', game.id]">
         <app-score [game]="game" class="list-group-item"></app-score>
-    </ng-template>
+    </StackLayout>
+  </ng-template>
 </ListView>

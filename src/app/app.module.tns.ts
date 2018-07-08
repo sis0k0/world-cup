@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { GameService } from './game.service';
 import { GamesListComponent } from './games-list/games-list.component';
 import { ScoreComponent } from './score/score.component';
+import { GameDetailsComponent } from './game-details/game-details.component';
+import { GameDetailsRouteComponent } from './game-details-route/game-details-route.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -26,7 +28,9 @@ import { ScoreComponent } from './score/score.component';
     AppComponent,
     HomeComponent,
     GamesListComponent,
-    ScoreComponent
+    ScoreComponent,
+    GameDetailsComponent,
+    GameDetailsRouteComponent,
   ],
   providers: [
     GameService,

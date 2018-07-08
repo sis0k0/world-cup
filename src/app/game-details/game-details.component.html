@@ -1,4 +1,5 @@
-<div *ngFor="let goal of (game && game.goals || [])">
-  <p>{{ goal.minute }}' {{ goal.goalscorer }}</p>
+<div>
+  <p *ngFor="let goal of (game && game.goals || [])">
+    {{ goal.minute }}' {{ goal.goalscorer }}
+  </p>
 </div>
-
