@@ -1,0 +1,15 @@
+<ListView [items]="games" class="list-group">
+  <ng-template let-game="item">
+    <StackLayout (tap)="game.showDetails = !game.showDetails">
+          <app-score
+            [game]="game"
+            class="list-group-item"
+          ></app-score>
+
+          <app-game-details
+            *ngIf="game.showDetails"
+            [game]="game"
+          ></app-game-details>
+    </StackLayout>
+  </ng-template>
+</ListView>

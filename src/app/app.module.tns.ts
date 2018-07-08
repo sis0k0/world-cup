@@ -4,6 +4,8 @@ import { AppComponent } from './app.component';
 
 import { GameService } from './game.service';
 import { ScoreComponent } from './score/score.component';
+import { GameDetailsComponent } from './game-details/game-details.component';
+import { GamesListComponent } from './games-list/games-list.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -21,6 +23,8 @@ import { ScoreComponent } from './score/score.component';
   declarations: [
     AppComponent,
     ScoreComponent,
+    GameDetailsComponent,
+    GamesListComponent,
   ],
   providers: [
     GameService,

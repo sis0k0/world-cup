@@ -5,7 +5,8 @@ import { Game } from '../game';
 @Component({
   selector: 'app-games-list',
   templateUrl: './games-list.component.html',
-  styleUrls: ['./games-list.component.css']
+  styleUrls: ['./games-list.component.css'],
+  moduleId: module.id,
 })
 export class GamesListComponent implements OnInit {
   @Input() games: Game[];
