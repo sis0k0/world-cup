@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 
-import { GameService } from './game.service';
-import { Game } from './game';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,11 +7,6 @@ import { Game } from './game';
 })
 export class AppComponent {
   title = 'World Cup 2018';
-  games: Game[];
 
-  constructor(private gameService: GameService) {
-    this.gameService.getAll().subscribe((games) => {
-      this.games = games;
-    });
-  }
+  constructor() { }
 }
