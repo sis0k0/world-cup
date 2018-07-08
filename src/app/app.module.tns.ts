@@ -3,6 +3,7 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { AppComponent } from './app.component';
 
 import { GameService } from './game.service';
+import { ScoreComponent } from './score/score.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -19,6 +20,7 @@ import { GameService } from './game.service';
   ],
   declarations: [
     AppComponent,
+    ScoreComponent,
   ],
   providers: [
     GameService,
