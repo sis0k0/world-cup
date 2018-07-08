@@ -5,7 +5,8 @@ import { Game } from '../game';
 @Component({
   selector: 'app-score',
   templateUrl: './score.component.html',
-  styleUrls: ['./score.component.css']
+  styleUrls: ['./score.component.css'],
+  moduleId: module.id,
 })
 export class ScoreComponent implements OnInit {
   @Input() game: Game;

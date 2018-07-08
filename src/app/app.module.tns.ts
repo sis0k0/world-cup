@@ -3,7 +3,10 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { AppRoutingModule } from './app-routing.module.tns';
 import { AppComponent } from './app.component';
 
-import { BarcelonaModule } from './barcelona/barcelona.module';
+import { HomeComponent } from './home/home.component';
+import { GameService } from './game.service';
+import { GamesListComponent } from './games-list/games-list.component';
+import { ScoreComponent } from './score/score.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -18,12 +21,15 @@ import { BarcelonaModule } from './barcelona/barcelona.module';
   imports: [
     NativeScriptModule,
     AppRoutingModule,
-    BarcelonaModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    GamesListComponent,
+    ScoreComponent
   ],
   providers: [
+    GameService,
   ],
   schemas: [
     NO_ERRORS_SCHEMA

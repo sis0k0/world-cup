@@ -1,0 +1,5 @@
+<ListView [items]="games" (itemTap)="onItemTap(event)" class="list-group">
+    <ng-template let-game="item">
+        <app-score [game]="game" class="list-group-item"></app-score>
+    </ng-template>
+</ListView>
