@@ -8,15 +8,14 @@ import { Game } from '../game';
   styleUrls: ['./score.component.css'],
   moduleId: module.id,
 })
-export class ScoreComponent implements OnInit {
+export class ScoreComponent {
   @Input() game: Game;
-  score: string;
 
   constructor() {
   }
 
-  ngOnInit() {
+  getScore() {
     const { team1, team2, score1, score2 } = this.game;
-    this.score = `${team1} ${score1} : ${score2} ${team2}`;
+    return `${team1} ${score1} : ${score2} ${team2}`;
   }
 }
