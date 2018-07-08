@@ -1,5 +1,12 @@
-<div *ngFor="let game of games">
-  <app-score (click)="game.showDetails = !game.showDetails" [game]="game"></app-score>
-  <app-game-details *ngIf="game.showDetails" [game]="game"></app-game-details>
-</div>
-
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel *ngFor="let game of games" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        </mat-panel-title>
+        <mat-panel-description>
+          <app-score [game]="game"></app-score>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-game-details [game]="game"></app-game-details>
+  </mat-expansion-panel>
+</mat-accordion>
