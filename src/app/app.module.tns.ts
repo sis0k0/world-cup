@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
-// import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
+import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 
 @NgModule({
   bootstrap: [
@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     NativeScriptModule,
+    NativeScriptHttpClientModule,
   ],
   declarations: [
     AppComponent,

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Game } from './game';
 
@@ -7,62 +9,80 @@ import { Game } from './game';
   providedIn: 'root'
 })
 export class GameService {
-  private games: Game[] = [
-    {
-      id: 1,
-      team1: 'England',
-      team2: 'France',
-      score1: 3,
-      score2: 0,
-      goals: [
-        {
-          goalscorer: "Harry Kane",
-          minute: 15,
-          teamId: 1,
-        },
-        {
-          goalscorer: "Danny Welbeck",
-          minute: 46,
-          teamId: 1,
-        },
-        {
-          goalscorer: "James Milner",
-          minute: 73,
-          teamId: 1,
-        },
-      ],
-    },
-
-    {
-      id: 2,
-      team1: 'Argentina',
-      team2: 'Brazil',
-      score1: 1,
-      score2: 1,
-      goals: [
-        {
-          goalscorer: 'Leo Messi',
-          minute: 13,
-          teamId: 0,
-        },
-        {
-          goalscorer: 'Neymar',
-          minute: 86,
-          teamId: 1,
-        },
-      ]
-    },
-  ];
-
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<Game[]> {
-    return of(this.games);
-  }
+    return this.httpClient.get<any>('https://worldcup.sfg.io/matches')
+      .pipe(map(
+        apiGames => apiGames
+        .map(game => {
+          const started = game.status !== 'future';
+          const isGoal = event => ['goal', 'goal-penalty'].includes(event.type_of_event);
+          const goals = started ?
+            [...game.home_team_events.filter(isGoal), ...game.away_team_events.filter(isGoal)]
+              .sort((a, b) => parseInt(a.time) - parseInt(b.time)) :
+            [];
 
-  get(id: number): Observable<Game> {
-    const game = this.games.find(game => game.id === id);
+          const { home_team, away_team } = game;
 
-    return of(game);
+          return Object.assign({}, {
+            team1: home_team.country,
+            team2: away_team.country,
+            score1: started ? home_team.goals : '-',
+            score2: started ? away_team.goals : '-',
+            goals,
+          });
+        })
+        .reverse()
+      ));
   }
 }
+
+
+// const games = [
+//     {
+//       id: 1,
+//       team1: 'England',
+//       team2: 'France',
+//       score1: 3,
+//       score2: 0,
+//       goals: [
+//         {
+//           player: "Harry Kane",
+//           time: 15,
+//           teamId: 1,
+//         },
+//         {
+//           player: "Danny Welbeck",
+//           time: 46,
+//           teamId: 1,
+//         },
+//         {
+//           player: "James Milner",
+//           time: 73,
+//           teamId: 1,
+//         },
+//       ],
+//     },
+// 
+//     {
+//       id: 2,
+//       team1: 'Argentina',
+//       team2: 'Brazil',
+//       score1: 1,
+//       score2: 1,
+//       goals: [
+//         {
+//           player: 'Leo Messi',
+//           time: 13,
+//           teamId: 0,
+//         },
+//         {
+//           player: 'Neymar',
+//           time: 86,
+//           teamId: 1,
+//         },
+//       ]
+//     },
+// ];
+// 

@@ -1,6 +1,6 @@
 <StackLayout *ngIf="game">
     <Label
       *ngFor="let goal of (game.goals || [])"
-      [text]="goal.minute + ' ' + goal.goalscorer"
+      [text]="goal.time + ' ' + goal.player"
     ></Label>
 </StackLayout>
