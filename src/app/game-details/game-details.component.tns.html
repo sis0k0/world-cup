@@ -1,0 +1,7 @@
+<StackLayout *ngIf="game">
+    <app-score [game]="game"></app-score>
+    <Label
+      *ngFor="let goal of (game.goals || [])"
+      [text]="goal.minute + ' ' + goal.goalscorer"
+    ></Label>
+</StackLayout>
