@@ -1,6 +1,7 @@
-<StackLayout *ngIf="game">
+<StackLayout *ngIf="game" class="m-10">
     <Label
       *ngFor="let goal of (game.goals || [])"
+      [ngClass]="{'text-left': goal.team === 'home', 'text-right': goal.team === 'away'}"
       [text]="goal.time + ' ' + goal.player"
     ></Label>
 </StackLayout>
