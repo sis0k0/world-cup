@@ -18,8 +18,13 @@ export class GameService {
         .map(game => {
           const started = game.status !== 'future';
           const isGoal = event => ['goal', 'goal-penalty'].includes(event.type_of_event);
+          const filterGoals = events => events.filter(isGoal);
+          const addTeam = (goal, team) => Object.assign(goal, { team });
           const goals = started ?
-            [...game.home_team_events.filter(isGoal), ...game.away_team_events.filter(isGoal)]
+            [
+              ...filterGoals(game.home_team_events).map(goal => addTeam(goal, 'home')),
+              ...filterGoals(game.away_team_events).map(goal => addTeam(goal, 'away')),
+            ]
               .sort((a, b) => parseInt(a.time) - parseInt(b.time)) :
             [];
 

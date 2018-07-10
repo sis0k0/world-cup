@@ -1,4 +1,14 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 .example-headers-align .mat-expansion-panel-header-description {
   align-items: center;
   flex-grow: 1;
+}
+
+.homeGoal {
+  text-align: left;
+}
+
+.awayGoal {
+  text-align: right;
 }

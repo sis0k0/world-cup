@@ -1,3 +1,5 @@
 <div *ngFor="let goal of (game && game.goals || [])">
-  <p>{{ goal.time }} {{ goal.player }}</p>
+  <p [ngClass]="{'homeGoal': goal.team === 'home', 'awayGoal': goal.team === 'away'}">
+    {{ goal.time }} {{ goal.player }}
+  </p>
 </div>
