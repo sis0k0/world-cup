@@ -10,11 +10,12 @@ import { Game } from './game';
   providedIn: 'root'
 })
 export class GameService {
+  private static API_URL = 'https://worldcup.sfg.io/matches';
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<Game[]> {
     // return of(games)
-    return this.httpClient.get<any>('https://worldcup.sfg.io/matches')
+    return this.httpClient.get<any>(GameService.API_URL)
       .pipe(
         map(apiGames => {
           return apiGames
